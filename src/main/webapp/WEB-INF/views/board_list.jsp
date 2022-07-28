@@ -20,7 +20,7 @@
 </head>
 <body>
 <c:import url="nav_top.jsp"></c:import>
-
+<div>container class</div>
 <div class="bs-example">
    <h2>Board</h2>
    <table class="table table-condensed table-hover table-striped">
@@ -34,13 +34,13 @@
       </tr>
       </thead>
       <tbody>
-      <c:forEach items="#{boards }" var="board">
+      <c:forEach items="#{boards}" var="board">
          <tr>
-            <td>${board.id }</td>
+            <td>${board.id}</td>
             <td><a href="<c:url value='/boards/view/${board.id }'/>">${board.title }</a></td>
             <td>${board.writer }</td>
             <td><fmt:formatDate pattern="MM-dd hh:mm" value="${board.regDate }" /></td>
-            <td>${board.hitCount }</td>
+            <td>${board.hitCount}</td>
          </tr>
       </c:forEach>
       </tbody>
@@ -53,7 +53,6 @@
             <c:if test="${pager.rows==0 }">
                <li class="active"><a href="#">1</a></li>
             </c:if>
-
             <!-- 게시물이 있는 경우 -->
             <c:if test="${pager.rows > 0 }">
                <!-- common 변수에 한페이지당 레코드건수&블럭당 페이지수 저장 -->
@@ -66,7 +65,7 @@
                <c:if test="${pager.bspage > pager.bsize }">
                   <c:set var="home" value="page=1&${common }" />
                   <c:set var="prev" value="page=${pager.bspage-1 }&${common }" />
-                  <li><a href="${target }?${home }">Home</a></li>
+                  <li><a href="${target }?${home}">Home</a></li>
                   <li><a href='<c:url value="${target }?${prev }"/>'>&laquo;</a></li>
                </c:if>
                <!-- 5개의 페이지 번호를 표시 -->
@@ -87,11 +86,12 @@
                <!-- 블럭시작페이지가 전체 페이지수 보다 작은 경우
                         예를들면 전체 페이지수가 6인데 1~5번째 페이지를 보는 경우
                     Last 및 이후 >> 셋팅. -->
+
                <c:if test="${pager.bepage < pager.pages }">
                   <c:set var="next" value="page=${pager.bepage+1 }&${common }" />
                   <c:set var="last" value="page=${pager.pages }&${common }" />
                   <li><a href='<c:url value="${target }?${next }"/>'>&raquo;</a></li>
-                  <li><a href="${target }?${last}">Last</a></li>
+                  <li><a href="${target}?${last}">Last</a></li>
                </c:if>
             </c:if>
          </ul>
