@@ -32,8 +32,8 @@ public interface BoardMapper {
     // 페이지 나누기 -> 현재페이지: page,  페이지당 개시물의 개수 :size
     public List<Board> selectByLimit(@Param("page") int page ,
                                      @Param("size") int size) throws Exception;
-
-    public int increment(@Param("id") long id , @Param("requester") String
+    //조회수 증가
+    public int increment(@Param("id") long id , @Param("requester") String requester);
 
 
 
